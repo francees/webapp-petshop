@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript training</h1>
+    </body>
+    <script>
+     //var test = prompt("Hinka bo nomber aden")
+    //alert("hey kon ta" + test)
+    var test = prompt("Hinka un number entre 0 ku 10")
+    var sekreto = Math.floor(Math.random()*10)
+    alert(sekreto)
+    while(parseInt(test) !==sekreto)
+    {
+        alert("E no ta bon purba di nobo")
+test = prompt("Hinka un number entre 1 ku 10")
+}
+    var tag = document.getElementsByTagName('h1')[0]
+    tag.innerText = "Bo a gana e number ta " + test
+        </script>
+</html>
