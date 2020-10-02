@@ -16,7 +16,7 @@
         {% for product in products %}
         <div class="product-item">
             <img src='{{product.image}}'/>
-            <h3>{{product.name}}</h3>
+            <h3>{{product.name}} {{}product._id}</h3> 
             <div class="qty-control">
                 
              <span data_name="{{product.name}}" onclick="modQTY"(-1)">-</span>

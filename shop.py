@@ -1,6 +1,12 @@
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
+import pymongo
+
+client = pymongo.MongoClient("mongodb+srv://francees:Blackberrypriv1@cluster0.bnodg.mongodb.net/easywebshop?retryWrites=true&w=majority")
+db = client.easywebshop
+product_collection = db.products
+
 
 @app.route('/')
 def hello_world():
@@ -12,35 +18,9 @@ def greeting(nomber):
 
 @app.route('/shop')
 def shop_front_view():
-    products = [
-        {
-            "name": "Dog Shampoo",
-            "brand": "Top Fin",
-            "price": 14.24,
-            "stock": 15
-        },
-             {
-            "name": "Cat Shampoo",
-            "brand": "Top Fin",
-            "price": 14.24,
-            "stock": 15
-        },
-             {
-            "name": "Dog Medecine",
-            "brand": "Top Fin",
-            "price": 14.24,
-            "stock": 15
-        },
-             {
-            "name": "Dog Medecine",
-            "brand": "Top Fin",
-            "price": 14.24,
-            "stock": 15,
-            "image": "https://cdn0.woolworths.media/content/wowproductimages/large/892654.jpg"
-         },
-    ]   
-    for product in products:
-        print(product['name'])
+    products = product_collection.find()
+    
+
 
     return render_template('shopfront.html' , products=products)
 
